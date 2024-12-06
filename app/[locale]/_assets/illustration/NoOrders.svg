@@ -1,0 +1,19 @@
+<svg width="110" height="118" viewBox="0 0 110 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_1814_52489)">
+<rect x="24.8252" y="87.8345" width="60.8589" height="5.81595" fill="#1B3554"/>
+</g>
+<rect x="25.3164" y="8.34961" width="60.8589" height="38.2883" fill="#E0E5EC"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M25.316 8.34961V66.5091H15.5V31.3403L20.4087 23.9007L25.316 8.34961Z" fill="#CFD4DC"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M85.684 8.34961V66.5091H95.5V31.3403L90.5913 23.9007L85.684 8.34961Z" fill="#CFD4DC"/>
+<path d="M15.5 31.1289H95.5V94.4663C95.5 97.2278 93.2614 99.4663 90.5 99.4663H20.5C17.7386 99.4663 15.5 97.2278 15.5 94.4663V31.1289Z" fill="white"/>
+<ellipse opacity="0.149343" cx="37.5854" cy="38.3987" rx="2.94479" ry="2.90798" fill="#1B3554"/>
+<ellipse opacity="0.149343" cx="73.4145" cy="38.3987" rx="2.94479" ry="2.90798" fill="#1B3554"/>
+<path d="M37.5859 38.2497V20.2239C37.5859 10.4539 45.6064 2.53369 55.5 2.53369C65.3937 2.53369 73.4142 10.4539 73.4142 20.2239V38.2497" stroke="#5E7085" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+<defs>
+<filter id="filter0_f_1814_52489" x="0.63825" y="63.6475" width="109.233" height="54.1898" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="12.0935" result="effect1_foregroundBlur_1814_52489"/>
+</filter>
+</defs>
+</svg>

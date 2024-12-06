@@ -1,0 +1,17 @@
+.comment {
+  font-size: 14px;
+  padding: 1rem 0.5rem;
+  border-top: 1px solid var(--lightgray-3);
+  .client {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .details {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .date {
+    color: var(--text-light);
+  }
+}

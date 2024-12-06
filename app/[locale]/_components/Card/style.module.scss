@@ -1,0 +1,123 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 8px;
+  gap: 8px;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #f6f8f9;
+  &_img {
+    aspect-ratio: 3 / 2;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    // &.loading {
+    //   @include skeleton;
+    // }
+    &.animated {
+      overflow: hidden;
+      // @include rotation;
+    }
+    img {
+      height: 100%;
+      &.grayscale {
+        filter: grayscale(100%);
+      }
+    }
+  }
+  &_content {
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .description {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--darkgray-4);
+    }
+    .price {
+      white-space: nowrap;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--darkgray-2);
+      margin-left: 4px;
+      .original_price {
+        text-decoration: line-through;
+        color: var(--text-light);
+        font-size: 12px;
+      }
+    }
+  }
+  &.unavailable {
+    .card_img {
+      opacity: 0.4;
+    }
+    .card_content {
+      opacity: 0.4;
+    }
+  }
+  opacity: 0;
+  animation: reveal 300ms ease-in-out forwards;
+  @keyframes reveal {
+    to {
+      opacity: 1;
+    }
+  }
+}
+.recommended {
+  margin-top: 24px;
+  .box {
+    border: 1px solid #b6c1db;
+    border-radius: 16px;
+    padding: 8px;
+  }
+}
+
+.dialog_content {
+  z-index: 1;
+  position: relative;
+  h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--darkgray-1);
+  }
+  .single_modifier {
+    margin-top: 20px;
+    h4 {
+      margin-bottom: 12px;
+    }
+  }
+  .modifier_group,
+  .option_group {
+    border: 1px solid var(--lightgray-2);
+    border-radius: 12px;
+    padding: 12px 12px 3px;
+    margin-top: 20px;
+    h4 {
+      margin-bottom: 3px;
+    }
+  }
+  .option_group {
+    .option {
+      :global .MuiFormControlLabel-label {
+        font-size: 12px;
+      }
+    }
+  }
+  .modifier_group_checkbox {
+    margin-top: 20px;
+    h4 {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 21px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.font {
+  font-family: GT Walsheim Pro;
+}

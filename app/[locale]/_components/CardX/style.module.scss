@@ -1,0 +1,120 @@
+.cardX {
+  width: 100%;
+  position: relative;
+  background: #fff;
+  display: flex;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid #f6f8f9;
+  z-index: 1;
+  overflow: hidden;
+  &.small {
+    width: 190px;
+    max-height: fit-content;
+    padding: 8px;
+    border-radius: 6px;
+    flex-direction: column;
+    animation: none;
+    .content {
+      padding-left: 0rem;
+      flex-direction: column;
+      .title {
+        font-weight: 400;
+        font-size: 16px;
+        margin-bottom: 4px;
+      }
+      .actions {
+        display: block;
+      }
+    }
+    .cardX_img {
+      border-radius: 12px;
+      margin-bottom: 4px;
+      border: 1px solid var(--lightgray-2);
+      // width: 175px;
+      width: auto;
+      aspect-ratio: 3 / 2;
+      height: 116px;
+      position: relative;
+    }
+  }
+  .edit {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 8px;
+    border-radius: 8px;
+    color: #7d5ea6;
+    background-color: #ffffffcc;
+    z-index: 1;
+  }
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .description {
+      font-size: 1rem;
+      color: #a5a5a5;
+    }
+    .actions {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+    }
+  }
+  &_img {
+    position: relative;
+    width: 126px;
+    height: 84px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+}
+
+.dialog_content {
+  z-index: 1;
+  position: relative;
+  h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--darkgray-1);
+  }
+  .single_modifier {
+    margin-top: 20px;
+    h4 {
+      margin-bottom: 12px;
+    }
+  }
+  .modifier_group,
+  .option_group {
+    border: 1px solid var(--lightgray-2);
+    border-radius: 12px;
+    padding: 12px 12px 3px;
+    margin-top: 20px;
+    h4 {
+      margin-bottom: 3px;
+    }
+  }
+  .option_group {
+    .option {
+      :global .MuiFormControlLabel-label {
+        font-size: 12px;
+      }
+    }
+  }
+  .modifier_group_checkbox {
+    margin-top: 20px;
+    h4 {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 21px;
+      margin-bottom: 8px;
+    }
+  }
+}

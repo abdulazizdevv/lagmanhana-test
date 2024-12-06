@@ -1,0 +1,26 @@
+.input {
+  padding: 0px 6px;
+  height: 32px;
+}
+
+.wrapper {
+  border: 1px solid #e5e7eb;
+  display: flex;
+  border-radius: 6px;
+  .copy {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin-right: 6px;
+    margin-top: 6px;
+  }
+}
+
+.country_number {
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 6px;
+  border-right: 1px solid #e5e7eb;
+  background-color: rgb(243, 244, 246);
+}

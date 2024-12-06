@@ -1,0 +1,60 @@
+.wrapper {
+  flex: 1;
+  .mmap {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.zoomControl {
+  position: absolute;
+  top: 18px;
+  right: 8px;
+  z-index: 1;
+  border-radius: 50px;
+  font-size: 18;
+  width: 102px;
+  height: 36px;
+  border: 1px solid
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+  background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.32) 0%,
+      rgba(255, 255, 255, 0.15) 100%
+    )
+    #292929;
+  cursor: pointer;
+  user-select: none;
+}
+
+.geolocationControl {
+  // position: absolute;
+  // top: 100%;
+  // left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 24px;
+  border-radius: 50px;
+  white-space: nowrap;
+  border: 1px solid #ffffff26;
+  font-size: 14px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+
+  box-shadow: 4px 4px 12px 0px #00000029;
+  backdrop-filter: blur(45px);
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}

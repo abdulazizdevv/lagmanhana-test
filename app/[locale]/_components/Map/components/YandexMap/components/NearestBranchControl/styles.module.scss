@@ -1,0 +1,29 @@
+.control {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 24px;
+  border-radius: 50px;
+  white-space: nowrap;
+  border: 1px solid #ffffff26;
+  font-size: 14px;
+  background: #fff;
+  font-weight: 500;
+  box-shadow: 4px 4px 12px 0px #00000029;
+  gap: 8px;
+  z-index: 1;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    color: #aa2400;
+    svg path {
+      stroke: #aa2400;
+    }
+  }
+}

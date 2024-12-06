@@ -1,0 +1,158 @@
+.pagination-container {
+  display: flex;
+  margin: 20px 0;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style for pagination buttons */
+.rc-pagination-item {
+  color: #333;
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+  background-color: transparent; /* Transparent background */
+  border-radius: 50%; /* Circular shape */
+
+  a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent */
+  }
+
+  &:hover {
+    background-color: #f8d3b8; /* Light background on hover */
+    a {
+      color: #000 !important; /* Text color on hover */
+    }
+  }
+}
+
+/* Style for the active page button */
+.rc-pagination-item-active {
+  background-color: #f87a1d; /* Active background color */
+  color: #fff; /* Active text color */
+
+  a {
+    color: #fff !important; /* Ensure text color is white */
+  }
+}
+
+/* Style for previous and next buttons */
+.rc-pagination-prev,
+.rc-pagination-next,
+.rc-pagination-prev .rc-pagination-item-link,
+.rc-pagination-next .rc-pagination-item-link {
+  background-color: transparent; /* Transparent background for arrows */
+  color: #333; /* Text color for arrows */
+  border: none; /* Remove border */
+  width: 40px; /* Arrow button width */
+  height: 40px; /* Arrow button height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+  border-radius: 50%; /* Circular shape */
+  font-size: 25px;
+  text-align: center;
+
+  &:hover {
+    background-color: #f8d9c4; /* Light background on hover */
+    color: #fff; /* Text color on hover */
+  }
+
+  /* Ensure child elements are centered */
+  &:hover .rc-pagination-item-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Custom arrow styling */
+.custom-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Style for quick jumper */
+.rc-pagination-options {
+  display: flex;
+  align-items: center;
+  margin-left: 10px; /* Space between quick jumper and pagination */
+}
+
+/* Style for ellipsis */
+.rc-pagination-item-ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Ensure it matches the width of other buttons */
+  height: 40px; /* Ensure it matches the height of other buttons */
+  line-height: 40px; /* Center text vertically */
+  position: relative;
+}
+
+.rc-pagination-item-ellipsis::after {
+  content: '...';
+  position: absolute;
+  bottom: 0; /* Align ellipsis at the bottom */
+  transform: translateY(100%); /* Adjust positioning if needed */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .rc-pagination-item {
+    width: 30px; /* Adjust button width for smaller screens */
+    height: 30px; /* Adjust button height for smaller screens */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+  .pagination-container {
+    display: flex;
+    justify-content: center; /* Center pagination horizontally */
+    margin: 20px 0; /* Optional: Adjust the margin as needed */
+  }
+
+  .rc-pagination-prev,
+  .rc-pagination-next {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+
+  .rc-pagination {
+    .rc-pagination-item {
+      &:nth-child(4),
+      &:nth-last-child(4) {
+        display: none;
+      }
+
+      &:nth-child(5),
+      &:nth-last-child(5) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        position: relative;
+      }
+    }
+  }
+}

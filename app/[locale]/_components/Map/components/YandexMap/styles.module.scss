@@ -1,0 +1,49 @@
+.wrapper {
+  flex: 1;
+  .mmap {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.zoomControl {
+  position: absolute;
+  top: 64px;
+  right: 8px;
+  z-index: 1;
+  border-radius: 50px;
+  font-size: 18;
+  width: 40px;
+  height: 102px;
+  background: #fff;
+  cursor: pointer;
+  user-select: none;
+  color: #000;
+  box-shadow: 4px 4px 12px 0px #00000029;
+}
+
+.geolocationControl {
+  transform: translateX(-50%);
+  color: #000;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 24px;
+  border-radius: 50px;
+  white-space: nowrap;
+  border: 1px solid #ffffff26;
+  font-size: 14px;
+  background: #fff;
+  font-weight: 500;
+  box-shadow: 4px 4px 12px 0px #00000029;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    color: #000;
+    svg path {
+      fill: #000;
+    }
+  }
+}
