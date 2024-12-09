@@ -1,43 +1,43 @@
-'use client'
+'use client';
 
-import { useI18n } from '@/_locales/client'
-import { getBranchById } from '@/_services/branches'
-import { getShipperById } from '@/_services/customerService'
-import { saveBranchData } from '@/_store/common/common.slice'
-import { IRedux } from '@/_types'
+import { useI18n } from '@/_locales/client';
+import { getBranchById } from '@/_services/branches';
+import { getShipperById } from '@/_services/customerService';
+import { saveBranchData } from '@/_store/common/common.slice';
+import { IRedux } from '@/_types';
 import {
   Alert,
   AlertDescription,
   AlertIcon,
   AlertTitle,
-} from '@chakra-ui/react'
-import { useQuery } from '@tanstack/react-query'
-import dayjs from 'dayjs'
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+} from '@chakra-ui/react';
+import { useQuery } from '@tanstack/react-query';
+import dayjs from 'dayjs';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-const format = 'HH:mm'
+const format = 'HH:mm';
 
 function AlertWorkHours({ isBanner }: { isBanner?: number }) {
-  const { deliveryType, branch } = useSelector((state: IRedux) => state.common)
-  const dispatch = useDispatch()
-  const t = useI18n()
-  const [scrollY, setScrollY] = useState(0)
+  const { deliveryType, branch } = useSelector((state: IRedux) => state.common);
+  const dispatch = useDispatch();
+  const t = useI18n();
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
+      setScrollY(window.scrollY);
+    };
 
-    handleScroll()
+    handleScroll();
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+      window.removeEventListener('scroll', handleScroll);
+    };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   const { data } = useQuery({
     queryKey: ['get-shipper-by-id'],
@@ -46,7 +46,7 @@ function AlertWorkHours({ isBanner }: { isBanner?: number }) {
         (res) => res?.data
       ),
     enabled: !Boolean(branch?.id),
-  })
+  });
 
   useEffect(() => {
     if (branch?.id && !branch?.work_hour_start) {
@@ -65,48 +65,44 @@ function AlertWorkHours({ isBanner }: { isBanner?: number }) {
             work_hour_end: res?.data?.work_hour_end,
             work_hour_start: res?.data?.work_hour_start,
           })
-        )
-      })
+        );
+      });
     }
-  }, [branch?.id])
+  }, [branch?.id]);
 
   // Get branch schedule status
   const isWorkingHour = (start: string, end: string) => {
-    const currentTime = dayjs()
+    const currentTime = dayjs();
 
     if (start && end) {
-      const workHourStart = dayjs(branch?.work_hour_start, format, true)
-      const workHourEnd = dayjs(branch?.work_hour_end, format, true)
+      const workHourStart = dayjs(start, format, true);
+      const workHourEnd = dayjs(end, format, true);
 
-      if (
-        branch?.work_hour_start === '00:00' &&
-        branch?.work_hour_end === '23:59'
-      ) {
-        return true
+      if (start === '00:00' && end === '23:59') {
+        return false;
       }
 
       if (workHourEnd.isBefore(workHourStart)) {
-        // Handle crossing midnight
         if (
           currentTime.isAfter(workHourStart) ||
           currentTime.isBefore(workHourEnd)
         ) {
-          return true
+          return false;
         }
       } else {
         if (
           currentTime.isAfter(workHourStart) &&
           currentTime.isBefore(workHourEnd)
         ) {
-          return true
+          return false;
         }
       }
 
-      return false
+      return true;
     }
 
-    return null
-  }
+    return null;
+  };
 
   if (isWorkingHour(branch?.work_hour_start, branch?.work_hour_end)) {
     return (
@@ -141,7 +137,7 @@ function AlertWorkHours({ isBanner }: { isBanner?: number }) {
           {t('now_you_can_preorder')}
         </AlertDescription>
       </Alert>
-    )
+    );
   } else if (isWorkingHour(data?.work_hour_start, data?.work_hour_end)) {
     return (
       <Alert
@@ -175,10 +171,10 @@ function AlertWorkHours({ isBanner }: { isBanner?: number }) {
           {t('now_you_can_preorder')}
         </AlertDescription>
       </Alert>
-    )
+    );
   }
 
-  return null
+  return null;
 }
 
-export default AlertWorkHours
+export default AlertWorkHours;
