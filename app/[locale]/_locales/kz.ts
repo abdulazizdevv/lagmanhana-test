@@ -83,6 +83,7 @@ export default {
   delete: 'Жою',
   addresses_and_delivery_zones: 'Мекенжайлар және жеткізу аймақтары',
   payment_method: 'Төлем әдісі',
+  payment_type: 'Төлем түрі',
   payment_method_2: 'Төлем әдістері',
   info_delivery: 'Жеткізу туралы ақпарат',
   select_payment_method: 'Төлем әдісін таңдаңыз',
@@ -396,4 +397,4 @@ export default {
     h1_blog: 'Блог',
     h1_main: 'Астанадағы тамақ жеткізу',
   },
-} as const
+} as const;

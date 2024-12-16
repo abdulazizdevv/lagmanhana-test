@@ -90,6 +90,7 @@ export default {
   delete: 'Delete',
   addresses_and_delivery_zones: 'Addresses and delivery zones',
   payment_method: 'Payment method',
+  payment_type: 'Payment type',
   payment_method_2: 'Payment method',
   info_delivery: 'Delivery info',
   select_payment_method: 'Select payment method',
@@ -399,4 +400,4 @@ export default {
     h1_blog: 'Blog',
     h1_main: 'Food Delivery in Astana',
   },
-} as const
+} as const;

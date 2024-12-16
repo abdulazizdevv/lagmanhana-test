@@ -1,10 +1,10 @@
-import { useI18n } from '@/_locales/client'
-import { IOrder } from '@/_types'
-import { Box, Divider, Flex, Heading, Stack, Text } from '@chakra-ui/react'
-import React from 'react'
+import { useI18n } from '@/_locales/client';
+import { IOrder } from '@/_types';
+import { Box, Divider, Flex, Heading, Stack, Text } from '@chakra-ui/react';
+import React from 'react';
 
 const OrderDetail = ({ order }: { order: IOrder }) => {
-  const t = useI18n()
+  const t = useI18n();
   return (
     <Box>
       <Text fontSize={18} fontWeight={700}>
@@ -36,7 +36,7 @@ const OrderDetail = ({ order }: { order: IOrder }) => {
           flexDir={{ base: 'column', md: 'row' }}
           justifyContent={'space-between'}
         >
-          <Text color={'#222222'}>Филиал</Text>
+          <Text color={'#222222'}>{t('restaurant')}</Text>
           <Text fontWeight={500}>{order?.steps[0]?.branch_name}</Text>
         </Flex>
         <Flex
@@ -52,7 +52,7 @@ const OrderDetail = ({ order }: { order: IOrder }) => {
         </Flex>
       </Stack>
     </Box>
-  )
-}
+  );
+};
 
-export default OrderDetail
+export default OrderDetail;

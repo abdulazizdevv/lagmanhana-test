@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import dayjs from 'dayjs'
+import Link from 'next/link';
+import dayjs from 'dayjs';
 // Style
-import styles from './style.module.scss'
-import { useEffect, useState } from 'react'
-import { useCurrentLocale, useI18n } from '@/_locales/client'
+import styles from './style.module.scss';
+import { useEffect, useState } from 'react';
+import { useCurrentLocale, useI18n } from '@/_locales/client';
 import {
   Alert,
   AlertDescription,
@@ -28,44 +28,44 @@ import {
   StackDivider,
   Text,
   Textarea,
-} from '@chakra-ui/react'
-import { useQuery } from '@tanstack/react-query'
-import orderService from '@/_services/orderService'
-import reviewService from '@/_services/reviewService'
-import StatusBar from '../StatusBar'
-import numToPrice from '@/_utils/numToPrice'
-import { IDiscount, IOrderStepsProduct } from '@/_types'
+} from '@chakra-ui/react';
+import { useQuery } from '@tanstack/react-query';
+import orderService from '@/_services/orderService';
+import reviewService from '@/_services/reviewService';
+import StatusBar from '../StatusBar';
+import numToPrice from '@/_utils/numToPrice';
+import { IDiscount, IOrderStepsProduct } from '@/_types';
 import {
   getStatusDescr,
   getStatusName,
   getTrackingStatus,
-} from '@/_utils/getStatus'
-import { Icon } from '@iconify/react/dist/iconify.js'
-import MsgQuestionIcon from '@/_assets/icons/MsgQuestion'
-import ProductCard from './components/ProductCard'
-import { Rating, RoundedStar } from '@smastrom/react-rating'
-import KaspiCard from '@/_components/KaspiCard'
-import NumberToPrice from '@/_components/NumberToPrice'
-import OrderDetail from './components/OrderDetail'
-import InputComponent from '@/_components/Input'
-import BreadCrumb from '@/_components/Breadcrumb'
-import BackIcon from '@/_assets/icons/BackIcon'
-import { useRouter } from 'next/navigation'
-import QRCard from '../../Kaspi/components/QRCard'
+} from '@/_utils/getStatus';
+import { Icon } from '@iconify/react/dist/iconify.js';
+import MsgQuestionIcon from '@/_assets/icons/MsgQuestion';
+import ProductCard from './components/ProductCard';
+import { Rating, RoundedStar } from '@smastrom/react-rating';
+import KaspiCard from '@/_components/KaspiCard';
+import NumberToPrice from '@/_components/NumberToPrice';
+import OrderDetail from './components/OrderDetail';
+import InputComponent from '@/_components/Input';
+import BreadCrumb from '@/_components/Breadcrumb';
+import BackIcon from '@/_assets/icons/BackIcon';
+import { useRouter } from 'next/navigation';
+import QRCard from '../../Kaspi/components/QRCard';
 
-import('dayjs/locale/ru')
+import('dayjs/locale/ru');
 
 // const currentLocale = 'ru'
 
 export default function Preview({ id }: { id: string }) {
-  const [rate, setRate] = useState(0)
-  const [userEmail, setUserEmail] = useState('')
-  const [reviewMsg, setReviewMsg] = useState('')
-  const [sent, setSent] = useState(false)
-  const currentLocale = useCurrentLocale()
-  const [showMore, setShowMore] = useState(true)
-  const router = useRouter()
-  const t = useI18n()
+  const [rate, setRate] = useState(0);
+  const [userEmail, setUserEmail] = useState('');
+  const [reviewMsg, setReviewMsg] = useState('');
+  const [sent, setSent] = useState(false);
+  const currentLocale = useCurrentLocale();
+  const [showMore, setShowMore] = useState(true);
+  const router = useRouter();
+  const t = useI18n();
 
   const {
     data: order,
@@ -77,9 +77,9 @@ export default function Preview({ id }: { id: string }) {
     queryFn: () => orderService.getById(id).then((res) => res.data),
     enabled: Boolean(id),
     retry: 1,
-  })
+  });
 
-  useEffect(() => setSent(false), [])
+  useEffect(() => setSent(false), []);
 
   const onSubmitReview = () => {
     const data = {
@@ -101,12 +101,12 @@ export default function Preview({ id }: { id: string }) {
       related_subject: 'meal', // actually, 'order' (misnamed)
       review_message: reviewMsg,
       type: rate > 3 ? 'like' : 'dislike',
-    }
+    };
     reviewService
       .create(data)
       .then(() => setSent(true))
-      .catch(console.log)
-  }
+      .catch(console.log);
+  };
 
   const BreadCrumpOrders = [
     {
@@ -121,9 +121,9 @@ export default function Preview({ id }: { id: string }) {
       item: `Заказ №${order?.external_order_id}`,
       link: '',
     },
-  ]
+  ];
 
-  if (isLoading) return <Spinner />
+  if (isLoading) return <Spinner />;
 
   if (isError)
     return (
@@ -132,7 +132,7 @@ export default function Preview({ id }: { id: string }) {
         <AlertTitle>Internal Server Error!</AlertTitle>
         {/* <AlertDescription>It is not you, {"it's"} us</AlertDescription> */}
       </Alert>
-    )
+    );
 
   return (
     <>
@@ -316,7 +316,7 @@ export default function Preview({ id }: { id: string }) {
           </Text>
           <Stack divider={<StackDivider borderColor='#FFFFFF12' />} spacing={2}>
             <HStack justify='space-between'>
-              <Text>Тип оплаты</Text>
+              <Text>{t('payment_type')}</Text>
               {/* <NumberToPrice
               textProps={{
                 fontWeight: 500,
@@ -513,7 +513,7 @@ export default function Preview({ id }: { id: string }) {
                       inactiveFillColor: '#E0E8F1',
                     }}
                     onChange={(newValue: number) => {
-                      setRate(newValue)
+                      setRate(newValue);
                     }}
                   />
                 )}
@@ -605,5 +605,5 @@ export default function Preview({ id }: { id: string }) {
         )}
       </Stack>
     </>
-  )
+  );
 }

@@ -85,6 +85,7 @@ export default {
   delete: 'Удалить',
   addresses_and_delivery_zones: 'Адреса и зоны доставки',
   payment_method: 'Метод оплаты',
+  payment_type: 'Тип оплаты',
   payment_method_2: 'Способы оплаты',
   info_delivery: 'Инфо о доставке',
   select_payment_method: 'Выберите способ оплаты',
@@ -407,4 +408,4 @@ export default {
     h1_blog: 'Блог',
     h1_main: 'Доставка еды в Астане',
   },
-} as const
+} as const;
